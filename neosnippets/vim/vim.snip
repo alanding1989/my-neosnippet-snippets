@@ -33,9 +33,8 @@ options     head
       ${0:TARGET}
     endwhile
 
-snippet     function
-abbr        func endfunc
-alias       func
+snippet     fun
+abbr        function endfunc
 options     head
     function! ${1:#:func_name}(${2}) abort
       ${0:TARGET}
@@ -82,12 +81,12 @@ options     head
       return filter(${2:#:list}, 'stridx(v:val, a:arglead) == 0')
     endfunction
 
-snippet     augroup
+snippet     au
 abbr        augroup with autocmds
 options     head
     augroup ${1:#:augroup_name}
       autocmd!
-      autocmd ${2:#:event}
+      auto ${2:#:event}
     augroup END
 
 snippet     redir
@@ -117,9 +116,8 @@ abbr neobundle hooks
     endfunction
     unlet s:hooks
 
-snippet     autoload
+snippet     af
 abbr        autoload func endfunc
-alias       afunction afunc
 options     head
     function! `substitute(matchstr(neosnippet#util#expand('%:p:r'), '/autoload/\zs.*$'), '/', '#', 'g')`#${1:#:func_name}(${2:#:args}) abort
       ${0}
