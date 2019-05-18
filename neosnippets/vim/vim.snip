@@ -33,7 +33,7 @@ options     head
       ${0:TARGET}
     endwhile
 
-snippet     fun
+snippet     fun f
 abbr        function endfunc
 options     head
     function! ${1:#:func_name}(${2}) abort
@@ -232,3 +232,29 @@ snippet     version_new
 abbr        vim-version-check-new
         has('patch-${1}')
 
+snippet     hi
+abbr        highlight def
+options     head
+  hi def link  ${1:group}  ${0:target}  
+
+snippet     let
+abbr        let name = value
+options     head
+      let ${1} = ${0}
+
+snippet     fmk
+abbr        foldmarker " {{{ 
+options     word
+      " $0 {{{
+
+snippet     fmj
+abbr        foldmarker " {{{ 
+options     word
+      " }}}
+
+snippet     fmb
+abbr        foldmarker block " {{{ 
+options     word
+      " ${1: }{{{
+      $0
+      " }}}
